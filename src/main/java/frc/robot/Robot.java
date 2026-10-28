@@ -48,8 +48,8 @@ public class Robot extends TimedRobot {
 
     @Override
     public void robotInit() {
-        leftFollowerConfig.follow(leftmotor1).inverted(true);
-        rightFollowerConfig.follow(rightmotor1).inverted(false);
+        leftFollowerConfig.follow(leftmotor1).inverted(false);
+        rightFollowerConfig.follow(rightmotor1).inverted(true);
 
         leftmotor1.configure(leftLeaderConfig, ResetMode.kResetSafeParameters,
             PersistMode.kNoPersistParameters);
@@ -83,7 +83,7 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopPeriodic() {
 
-        drive.tankDrive(robotController.getLeftY(), robotController.getRightX());
+        drive.tankDrive(robotController.getLeftY(), robotController.getRightY());
     }
 
     /** This function is called once each time the robot enters test mode. */
