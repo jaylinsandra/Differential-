@@ -48,8 +48,10 @@ public class Robot extends TimedRobot {
 
     @Override
     public void robotInit() {
-        leftFollowerConfig.follow(leftmotor1).inverted(false);
-        rightFollowerConfig.follow(rightmotor1).inverted(true);
+        leftLeaderConfig.inverted(true);
+        rightLeaderConfig.inverted(false);
+        leftFollowerConfig.follow(leftmotor1);
+        rightFollowerConfig.follow(rightmotor1);
 
         leftmotor1.configure(leftLeaderConfig, ResetMode.kResetSafeParameters,
             PersistMode.kNoPersistParameters);
